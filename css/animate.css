@@ -1,0 +1,149 @@
+/* I started woking on the animation with the sun first, then the clouds, sea, boat and smokes */
+.sun #ray1 {
+  animation: sunray 4s linear infinite;
+  /* The below property was needed to keep the scale growth in the center of the svg */
+  transform-origin: center center;
+}
+
+/* Since I had to make the second sun ray start after the first
+I separated them into 2 css assignments, so the second one I could
+add a delay for it */
+.sun #ray2 {
+  animation: sunray 4s linear infinite 1s;
+  transform-origin: center center;
+}
+
+/* Since both sun ray would use the same animations, I created one keyframe for them */
+@keyframes sunray {
+  0% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.3);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.6);
+  }
+}
+
+/* The clouds each had different positions in which they would stop
+So I created one css declaration and one keyframe for each */
+.cloud1 {
+  animation: cloud1 40s linear infinite;
+}
+
+@keyframes cloud1 {
+  50% {
+    left: 60%;
+  }
+  100% {
+    left: 12%;
+  }
+}
+
+.cloud2 {
+  animation: cloud2 40s linear infinite;
+}
+
+@keyframes cloud2 {
+  50% {
+    left: 72%;
+  }
+  100% {
+    left: 22%;
+  }
+}
+
+.cloud3 {
+  animation: cloud3 40s linear infinite;
+}
+
+@keyframes cloud3 {
+  50% {
+    left: 61%;
+  }
+  100% {
+    left: 5%;
+  }
+}
+
+.cloud4 {
+  animation: cloud4 40s linear infinite;
+}
+
+@keyframes cloud4 {
+  50% {
+    left: 93%;
+  }
+  100% {
+    left: 75%;
+  }
+}
+
+.cloud5 {
+  animation: cloud5 40s linear infinite;
+}
+
+@keyframes cloud5 {
+  50% {
+    left: 90%;
+  }
+  100% {
+    left: 82%;
+  }
+}
+
+/* The sea animation was a growth in the height amount */
+#sea {
+  animation: sea 8s ease infinite;
+}
+
+@keyframes sea {
+  50% {
+    height: 42vh;
+  }
+  100% {
+    height: 40vh;
+  }
+}
+
+/* For the boat, I made the top value increase, so the boat would move downwards and come back */
+#boat {
+  animation: boat 4s ease infinite;
+}
+
+@keyframes boat {
+  50% {
+    top: 48%;
+  }
+  100% {
+    top: 45%;
+  }
+}
+
+/* The smoke is a similar case to the sun ray, I was able to create 1 keyframe,
+but I had to separate each smoke to add a delay */
+.smoke1 {
+  animation: smoke 5s linear infinite;
+}
+
+.smoke2 {
+  animation: smoke 5s linear infinite 1s;
+}
+
+.smoke3 {
+  animation: smoke 5s linear infinite 2s;
+}
+
+@keyframes smoke {
+  0% {
+    opacity: 1;
+  }
+  60% {
+    opacity: 0;
+    /* Here I move the smoke up and to the left using translate while also making them grow using scale */
+    transform: translate(-260px, -80px) scale(2.8);
+  }
+}
